@@ -21,12 +21,12 @@ To run the app locally, follow these steps:
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/mintGeorge/bookstore.git
+   git clone https://github.com/mintGeorge/book-store.git
    ```
 
 2. **Navigate to the project directory**:
    ```bash
-   cd bookstore
+   cd book-store
    ```
 
 3. **Install dependencies**:
