@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:bookstore/models/category_model.dart';
 import 'package:bookstore/models/book_model.dart';
+import 'package:flutter/services.dart';
+import 'package:bookstore/pages/favourites.dart';
+import 'package:bookstore/pages/settings.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -11,65 +16,114 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int _selectedIndex = 0;
+  final ScrollController _scrollController = ScrollController();
   List<CategoryModel> categories = [];
-  List<BookModel> popularBooks = [];
+  List<dynamic> popularBooks = [];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   @override
   void initState() {
     super.initState();
+    _scrollController.addListener(() {
+      if (_scrollController.offset > 50 &&
+          !_scrollController.position.outOfRange) {
+        SystemChrome.setSystemUIOverlayStyle(
+          SystemUiOverlayStyle(statusBarColor: Colors.transparent),
+        );
+      } else {
+        SystemChrome.setSystemUIOverlayStyle(
+          SystemUiOverlayStyle(statusBarColor: Colors.grey),
+        );
+      }
+    });
     categories = CategoryModel.getCategories();
-    popularBooks = BookModel.getPopularBooks();
+    fetchBooks();
   }
 
   @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  Future<void> fetchBooks() async {
+    final response = await http.get(Uri.parse('http://10.248.92.227:8080/popular'));
+
+    if (response.statusCode == 200) {
+      final List<dynamic> booksJson = json.decode(response.body);
+      setState(() {
+        popularBooks = booksJson.map((book) => BookModel.fromJson(book)).toList();
+      });
+    } else {
+      print('Failed to load books');
+    }
+}
+  @override
   Widget build(BuildContext context) {
-    final screenSize = MediaQuery.of(context).size;
-    final isLargeScreen = screenSize.width > 600;
-    
     return Scaffold(
       backgroundColor: Colors.white,
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            appBar(isLargeScreen),
-            _searchField(isLargeScreen),
-            SizedBox(height: isLargeScreen ? 15 : 30),
-            _categoriesSection(isLargeScreen),
-            SizedBox(height: isLargeScreen ? 20 : 35),
-            _popularBooksSection(isLargeScreen),
-            SizedBox(height: isLargeScreen ? 20 : 35),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(left: isLargeScreen ? 40 : 20),
-                  child: Text(
-                    "Contact Us",
-                    style: TextStyle(
-                      fontSize: isLargeScreen ? 24 : 20,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    ),
-                  ),
-                ),
-                SizedBox(height: isLargeScreen ? 10 : 20),
-                // Add your best sellers section here
-              ],
-            )
-          ],
-        ),
+      body: IndexedStack(
+        index: _selectedIndex,
+        children: [_homePageContent(), FavoritesPage(), SettingsPage()],
+      ),
+      bottomNavigationBar: _navigationSection(),
+    );
+  }
+
+  Widget _navigationSection() {
+    return BottomNavigationBar(
+      backgroundColor: Colors.white,
+      selectedItemColor: Colors.black,
+      unselectedItemColor: Colors.grey,
+      type: BottomNavigationBarType.fixed,
+      iconSize: 24,
+      selectedFontSize: 12,
+      unselectedFontSize: 12,
+      onTap: _onItemTapped,
+      currentIndex: _selectedIndex,
+      items: const <BottomNavigationBarItem>[
+        BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+        BottomNavigationBarItem(icon: Icon(Icons.favorite), label: "Favorites"),
+        BottomNavigationBarItem(icon: Icon(Icons.settings), label: "Settings"),
+      ],
+    );
+  }
+
+  Widget _homePageContent() {
+    return SingleChildScrollView(
+      controller: _scrollController,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          appBar(),
+          _searchField(),
+          SizedBox(height: 30),
+          _categoriesSection(),
+          SizedBox(height: 35),
+          _popularBooksSection(),
+          SizedBox(height: 35),
+        ],
       ),
     );
   }
 
-  Widget _popularBooksSection(bool isLargeScreen) {
-    // Calculate responsive grid parameters
-    final crossAxisCount = isLargeScreen ? 4 : 2;
-    // Adjust aspect ratio to accommodate author text
-    final aspectRatio = isLargeScreen ? 0.65 : 0.45;
-    final horizontalPadding = isLargeScreen ? 
-        MediaQuery.of(context).size.width * 0.1 : 20.0;
+  Widget _popularBooksSection() {
+    const crossAxisCount = 2;
+    const aspectRatio = 0.45;
+    const horizontalPadding = 20.0;
+
+    if (popularBooks.isEmpty) {
+      return Center(
+        heightFactor: 10,
+        child: CircularProgressIndicator(),
+      );
+    }
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -79,21 +133,21 @@ class _HomePageState extends State<HomePage> {
           child: Text(
             "Popular Books",
             style: TextStyle(
-              fontSize: isLargeScreen ? 24 : 20,
+              fontSize: 20,
               fontWeight: FontWeight.bold,
               color: Colors.black,
             ),
           ),
         ),
-        SizedBox(height: isLargeScreen ? 10 : 20),
+        SizedBox(height: 20),
         GridView.builder(
           padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
           shrinkWrap: true,
           physics: NeverScrollableScrollPhysics(),
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: crossAxisCount,
-            crossAxisSpacing: isLargeScreen ? 30 : 20,
-            mainAxisSpacing: isLargeScreen ? 20 : 15,
+            crossAxisSpacing: 20,
+            mainAxisSpacing: 15,
             childAspectRatio: aspectRatio,
           ),
           itemCount: popularBooks.length,
@@ -108,21 +162,19 @@ class _HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Book cover image
                   Center(
                     child: Image.asset(
                       popularBooks[index].coverImagePath,
-                      height: isLargeScreen ? 220 : 180,
-                      width: isLargeScreen ? 170 : 130,
+                      height: 180,
+                      width: 130,
                       fit: BoxFit.cover,
                     ),
                   ),
                   SizedBox(height: 12),
-                  // Book title
                   Text(
                     popularBooks[index].title,
                     style: TextStyle(
-                      fontSize: isLargeScreen ? 16 : 13,
+                      fontSize: 13,
                       fontWeight: FontWeight.bold,
                       color: Colors.black,
                     ),
@@ -133,7 +185,7 @@ class _HomePageState extends State<HomePage> {
                   Text(
                     "Author : ${popularBooks[index].author}",
                     style: TextStyle(
-                      fontSize: isLargeScreen ? 14 : 12,
+                      fontSize: 12,
                       fontWeight: FontWeight.w500,
                       color: Colors.black.withOpacity(0.5),
                       fontFamily: "Arial",
@@ -144,7 +196,7 @@ class _HomePageState extends State<HomePage> {
                   Text(
                     "Genre : ${popularBooks[index].genre}",
                     style: TextStyle(
-                      fontSize: isLargeScreen ? 14 : 12,
+                      fontSize: 12,
                       fontWeight: FontWeight.w500,
                       color: Colors.black.withOpacity(0.5),
                       fontFamily: "Arial",
@@ -155,7 +207,7 @@ class _HomePageState extends State<HomePage> {
                   Text(
                     "Pages : ${popularBooks[index].pages}",
                     style: TextStyle(
-                      fontSize: isLargeScreen ? 14 : 12,
+                      fontSize: 12,
                       fontWeight: FontWeight.w500,
                       color: Colors.black.withOpacity(0.5),
                       fontFamily: "Arial",
@@ -166,7 +218,7 @@ class _HomePageState extends State<HomePage> {
                   Text(
                     "Description : \n${popularBooks[index].description}",
                     style: TextStyle(
-                      fontSize: isLargeScreen ? 14 : 12,
+                      fontSize: 12,
                       fontWeight: FontWeight.w500,
                       color: Colors.black.withOpacity(0.5),
                       fontFamily: "Arial",
@@ -181,10 +233,9 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget _categoriesSection(bool isLargeScreen) {
-    final horizontalPadding = isLargeScreen ? 
-        MediaQuery.of(context).size.width * 0.1 : 20.0;
-    
+  Widget _categoriesSection() {
+    const horizontalPadding = 20.0;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -193,7 +244,7 @@ class _HomePageState extends State<HomePage> {
           child: Text(
             "Category",
             style: TextStyle(
-              fontSize: isLargeScreen ? 24 : 20,
+              fontSize: 20,
               fontWeight: FontWeight.bold,
               color: Colors.black,
             ),
@@ -201,15 +252,15 @@ class _HomePageState extends State<HomePage> {
         ),
         SizedBox(height: 10),
         Container(
-          height: isLargeScreen ? 150 : 130,
+          height: 130,
           child: ListView.separated(
             itemCount: categories.length,
             scrollDirection: Axis.horizontal,
             padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
-            separatorBuilder: (context, index) => SizedBox(width: isLargeScreen ? 35 : 25),
+            separatorBuilder: (context, index) => SizedBox(width: 25),
             itemBuilder: (context, index) {
               return Container(
-                width: isLargeScreen ? 120 : 100,
+                width: 100,
                 decoration: BoxDecoration(
                   color: categories[index].boxColor.withOpacity(0.3),
                   borderRadius: BorderRadius.circular(20),
@@ -218,8 +269,8 @@ class _HomePageState extends State<HomePage> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Container(
-                      width: isLargeScreen ? 60 : 50,
-                      height: isLargeScreen ? 60 : 50,
+                      width: 50,
+                      height: 50,
                       decoration: BoxDecoration(
                         color: Colors.white,
                         shape: BoxShape.circle,
@@ -234,7 +285,7 @@ class _HomePageState extends State<HomePage> {
                       style: TextStyle(
                         fontWeight: FontWeight.w500,
                         color: Colors.black,
-                        fontSize: isLargeScreen ? 18 : 16,
+                        fontSize: 16,
                       ),
                     ),
                   ],
@@ -247,15 +298,14 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget _searchField(bool isLargeScreen) {
-    final horizontalPadding = isLargeScreen ? 
-        MediaQuery.of(context).size.width * 0.1 : 20.0;
-    
+  Widget _searchField() {
+    const horizontalPadding = 20.0;
+
     return Container(
       margin: EdgeInsets.only(
-        top: isLargeScreen ? 20 : 40, 
-        left: horizontalPadding, 
-        right: horizontalPadding
+        top: 40,
+        left: horizontalPadding,
+        right: horizontalPadding,
       ),
       decoration: BoxDecoration(
         boxShadow: [
@@ -273,13 +323,13 @@ class _HomePageState extends State<HomePage> {
               hintText: "Search...",
               hintStyle: TextStyle(
                 color: Colors.grey,
-                fontSize: isLargeScreen ? 18 : 16,
+                fontSize: 16,
                 fontFamily: "Arial",
               ),
               filled: true,
               fillColor: Colors.white,
               contentPadding: EdgeInsets.symmetric(
-                vertical: isLargeScreen ? 22 : 18,
+                vertical: 18,
                 horizontal: 60,
               ),
               border: OutlineInputBorder(
@@ -296,13 +346,10 @@ class _HomePageState extends State<HomePage> {
               onTap: () => print("Pressed filter button"),
               child: Row(
                 children: [
-                  SvgPicture.asset(
-                    "assets/icons/Filter.svg",
-                    height: isLargeScreen ? 24 : 20,
-                  ),
+                  SvgPicture.asset("assets/icons/Filter.svg", height: 20),
                   SizedBox(width: 10),
                   Container(
-                    height: isLargeScreen ? 24 : 20,
+                    height: 20,
                     width: 1,
                     color: Colors.black.withOpacity(0.5),
                   ),
@@ -323,14 +370,14 @@ class _HomePageState extends State<HomePage> {
                     right: Radius.circular(40),
                   ),
                   child: Container(
-                    width: isLargeScreen ? 60 : 50,
+                    width: 50,
                     color: Color(0xffF7F8F8),
-                    padding: EdgeInsets.all(isLargeScreen ? 14 : 12),
+                    padding: EdgeInsets.all(12),
                     child: Padding(
                       padding: const EdgeInsets.all(2.0),
                       child: SvgPicture.asset(
                         "assets/icons/Search.svg",
-                        height: isLargeScreen ? 24 : 20,
+                        height: 20,
                       ),
                     ),
                   ),
@@ -343,10 +390,9 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget appBar(bool isLargeScreen) {
-    final horizontalPadding = isLargeScreen ? 
-      MediaQuery.of(context).size.width * 0.1 : 0.0;
-    
+  Widget appBar() {
+    const horizontalPadding = 0.0;
+
     return Container(
       padding: EdgeInsets.only(
         top: MediaQuery.of(context).padding.top,
@@ -355,7 +401,7 @@ class _HomePageState extends State<HomePage> {
       ),
       color: Colors.white,
       child: Padding(
-        padding: EdgeInsets.symmetric(vertical: isLargeScreen ? 15 : 10),
+        padding: EdgeInsets.symmetric(vertical: 10),
         child: Row(
           children: [
             GestureDetector(
@@ -363,7 +409,7 @@ class _HomePageState extends State<HomePage> {
                 print("Pressed back button");
               },
               child: Container(
-                margin: EdgeInsets.all(isLargeScreen ? 12 : 10),
+                margin: EdgeInsets.all(10),
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
                   color: Color(0xffF7F8F8),
@@ -371,8 +417,8 @@ class _HomePageState extends State<HomePage> {
                 ),
                 child: SvgPicture.asset(
                   "assets/icons/ArrowLeft.svg",
-                  height: isLargeScreen ? 24 : 20,
-                  width: isLargeScreen ? 24 : 20,
+                  height: 20,
+                  width: 20,
                 ),
               ),
             ),
@@ -381,7 +427,7 @@ class _HomePageState extends State<HomePage> {
                 child: Text(
                   'Bookstore',
                   style: TextStyle(
-                    fontSize: isLargeScreen ? 36 : 30,
+                    fontSize: 30,
                     fontWeight: FontWeight.bold,
                     color: Colors.black,
                   ),
@@ -393,17 +439,14 @@ class _HomePageState extends State<HomePage> {
                 print("Pressed menu button");
               },
               child: Container(
-                margin: EdgeInsets.all(isLargeScreen ? 12 : 10),
-                width: isLargeScreen ? 46 : 40,
+                margin: EdgeInsets.all(10),
+                width: 40,
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
                   color: Color(0xffF7F8F8),
                   borderRadius: BorderRadius.circular(10),
                 ),
-                child: SvgPicture.asset(
-                  "assets/icons/dots.svg", 
-                  height: isLargeScreen ? 6 : 5
-                ),
+                child: SvgPicture.asset("assets/icons/dots.svg", height: 5),
               ),
             ),
           ],
