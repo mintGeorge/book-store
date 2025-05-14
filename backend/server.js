@@ -42,6 +42,24 @@ app.post('/addFavorite', (req, res) => {
 
 });
 
+app.get('/favorites' , (req, res) => {
+    const token = req.headers.authorization;
+
+    if (token !== `Bearer ${process.env.ACCESS_TOKEN}`) {
+        return res.status(401).json({ message: 'Unauthorized' });
+    }
+
+    Book.find({ isFavorite: true })
+        .then(books => {
+            res.json(books);
+        })
+        .catch(err => {
+            console.error('Error fetching favorite books:', err);
+            res.status(500).send('Internal Server Error');
+        });
+});
+
+
 app.listen(PORT,'0.0.0.0', () => {
     console.log(`Server is running on port ${PORT}`);
 });
