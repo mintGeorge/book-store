@@ -1,4 +1,3 @@
-import 'package:bookstore/config/.env';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:bookstore/models/category_model.dart';
@@ -45,7 +44,7 @@ class _HomePageState extends State<HomePage> {
       }
     });
     categories = CategoryModel.getCategories();
-    fetchBooks();
+    fetchPopularBooks();
   }
 
   @override
@@ -54,7 +53,7 @@ class _HomePageState extends State<HomePage> {
     super.dispose();
   }
 
-  Future<void> fetchBooks() async {
+  Future<void> fetchPopularBooks() async {
     final backendUrl = dotenv.env['BACKEND_URL'];
     final response = await http.get(
       Uri.parse('$backendUrl/popular'),
