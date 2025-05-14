@@ -20,6 +20,13 @@ mongoose.connect(process.env.MONGODB_URI, {dbName: 'books_db'})
     });
 
 app.get('/popular', (req, res) => {
+    
+    const token = req.headers.authorization;
+
+    if (token !== `Bearer ${process.env.ACCESS_TOKEN}`) {
+        return res.status(401).json({ message: 'Unauthorized' });
+    }
+
     Book.find({ isPopular: true })
         .then(books => {
             res.json(books);
