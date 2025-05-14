@@ -58,6 +58,9 @@ class _HomePageState extends State<HomePage> {
     final backendUrl = dotenv.env['BACKEND_URL'];
     final response = await http.get(
       Uri.parse('$backendUrl/popular'),
+      headers: {
+        'Authorization': 'Bearer ${dotenv.env['ACCESS_TOKEN']}',
+      },
     );
 
     if (response.statusCode == 200) {
