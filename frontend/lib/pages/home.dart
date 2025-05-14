@@ -1,3 +1,4 @@
+import 'package:bookstore/config/.env';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:bookstore/models/category_model.dart';
@@ -7,6 +8,7 @@ import 'package:bookstore/pages/favourites.dart';
 import 'package:bookstore/pages/settings.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -53,17 +55,22 @@ class _HomePageState extends State<HomePage> {
   }
 
   Future<void> fetchBooks() async {
-    final response = await http.get(Uri.parse('http://10.248.92.227:8080/popular'));
+    final backendUrl = dotenv.env['BACKEND_URL'];
+    final response = await http.get(
+      Uri.parse('$backendUrl/popular'),
+    );
 
     if (response.statusCode == 200) {
       final List<dynamic> booksJson = json.decode(response.body);
       setState(() {
-        popularBooks = booksJson.map((book) => BookModel.fromJson(book)).toList();
+        popularBooks =
+            booksJson.map((book) => BookModel.fromJson(book)).toList();
       });
     } else {
       print('Failed to load books');
     }
-}
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -119,10 +126,7 @@ class _HomePageState extends State<HomePage> {
     const horizontalPadding = 20.0;
 
     if (popularBooks.isEmpty) {
-      return Center(
-        heightFactor: 10,
-        child: CircularProgressIndicator(),
-      );
+      return Center(heightFactor: 10, child: CircularProgressIndicator());
     }
 
     return Column(
