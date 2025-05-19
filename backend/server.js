@@ -19,14 +19,18 @@ mongoose.connect(process.env.MONGODB_URI, {dbName: 'books_db'})
         console.error('MongoDB connection error:', err);
     });
 
-app.get('/popular', (req, res) => {
-    
+
+function authenticateToken(req, res, next) {
     const token = req.headers.authorization;
 
     if (token !== `Bearer ${process.env.ACCESS_TOKEN}`) {
         return res.status(401).json({ message: 'Unauthorized' });
     }
+    next();
+}
 
+app.get('/popular', authenticateToken, (req, res) => {
+    
     Book.find({ isPopular: true })
         .then(books => {
             res.json(books);
@@ -40,14 +44,13 @@ app.get('/popular', (req, res) => {
 
 app.post('/addFavorite', (req, res) => {
 
+    Book.findByIdAndUpdate( req.body.id, { $set: { isFavorite: true } }, { new: true })
+    .then(updatedBook => res.json(updatedBook))
+    .catch(err => res.status(500).json({ error: err.message }));
+
 });
 
-app.get('/favorites' , (req, res) => {
-    const token = req.headers.authorization;
-
-    if (token !== `Bearer ${process.env.ACCESS_TOKEN}`) {
-        return res.status(401).json({ message: 'Unauthorized' });
-    }
+app.get('/favorites', authenticateToken, (req, res) => {
 
     Book.find({ isFavorite: true })
         .then(books => {

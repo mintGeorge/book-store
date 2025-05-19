@@ -4,7 +4,7 @@ import 'package:bookstore/models/category_model.dart';
 import 'package:bookstore/models/book_model.dart';
 import 'package:flutter/services.dart';
 import 'package:bookstore/pages/favourites.dart';
-import 'package:bookstore/pages/settings.dart';
+import 'package:bookstore/pages/settings_pages/settings.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -57,9 +57,7 @@ class _HomePageState extends State<HomePage> {
     final backendUrl = dotenv.env['BACKEND_URL'];
     final response = await http.get(
       Uri.parse('$backendUrl/popular'),
-      headers: {
-        'Authorization': 'Bearer ${dotenv.env['ACCESS_TOKEN']}',
-      },
+      headers: {'Authorization': 'Bearer ${dotenv.env['ACCESS_TOKEN']}'},
     );
 
     if (response.statusCode == 200) {
