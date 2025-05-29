@@ -12,7 +12,6 @@ class FavoritesPage extends StatefulWidget {
 }
 
 class _FavoritesPageState extends State<FavoritesPage> {
-
   List<dynamic> favoriteBooks = [];
   final ScrollController _scrollController = ScrollController();
   @override
@@ -43,9 +42,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
     final backendUrl = dotenv.env['BACKEND_URL'];
     final response = await http.get(
       Uri.parse('$backendUrl/favorites'),
-      headers: {
-        'Authorization': 'Bearer ${dotenv.env['ACCESS_TOKEN']}',
-      },
+      headers: {'Authorization': 'Bearer ${dotenv.env['ACCESS_TOKEN']}'},
     );
     if (response.statusCode == 200) {
       final List<dynamic> booksJson = json.decode(response.body);
@@ -61,12 +58,11 @@ class _FavoritesPageState extends State<FavoritesPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-      ),
+      appBar: AppBar(backgroundColor: const Color.fromARGB(0, 0, 0, 0)),
       body: _favoriteBooksSection(),
     );
   }
+
   Widget _favoriteBooksSection() {
     const crossAxisCount = 2;
     const aspectRatio = 0.45;
@@ -78,18 +74,19 @@ class _FavoritesPageState extends State<FavoritesPage> {
 
     return SingleChildScrollView(
       controller: _scrollController,
-      child: 
-      Column(
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Center(child: Text(
-          "Favorites",
-          style: TextStyle(
-            fontSize: 30,
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
+          Center(
+            child: Text(
+              "Favorites",
+              style: TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              ),
+            ),
           ),
-        )),
           SizedBox(height: 20),
           GridView.builder(
             padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
@@ -114,7 +111,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Center(
-                      child: Image.asset(
+                      child: Image.network(
                         favoriteBooks[index].coverImagePath,
                         height: 180,
                         width: 130,
@@ -184,7 +181,4 @@ class _FavoritesPageState extends State<FavoritesPage> {
       ),
     );
   }
-
 }
-
-  

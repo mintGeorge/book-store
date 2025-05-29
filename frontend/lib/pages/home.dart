@@ -59,7 +59,6 @@ class _HomePageState extends State<HomePage> {
       Uri.parse('$backendUrl/popular'),
       headers: {'Authorization': 'Bearer ${dotenv.env['ACCESS_TOKEN']}'},
     );
-
     if (response.statusCode == 200) {
       final List<dynamic> booksJson = json.decode(response.body);
       setState(() {
@@ -167,7 +166,7 @@ class _HomePageState extends State<HomePage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Center(
-                    child: Image.asset(
+                    child: Image.network(
                       popularBooks[index].coverImagePath,
                       height: 180,
                       width: 130,
