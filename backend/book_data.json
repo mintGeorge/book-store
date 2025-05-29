@@ -138,5 +138,725 @@
     "pages": "236 pages",
     "isFavorite": true,
     "isPopular": true
+  },
+  {
+    "title": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald",
+    "coverImagePath": "assets/images/thegreatgatsby.jpg",
+    "genre": "Classic",
+    "description": "A critique of the American Dream through the eyes of Nick Carraway and his enigmatic neighbor Jay Gatsby.",
+    "pages": "180 pages",
+    "isFavorite": true,
+    "isPopular": true
+  },
+  {
+    "title": "Harry Potter and the Philosopher's Stone",
+    "author": "J.K. Rowling",
+    "coverImagePath": "assets/images/harrypotter1.jpg",
+    "genre": "Fantasy",
+    "description": "A young wizard discovers his magical heritage and begins his journey at Hogwarts School.",
+    "pages": "223 pages",
+    "isFavorite": true,
+    "isPopular": true
+  },
+  {
+    "title": "Pride and Prejudice",
+    "author": "Jane Austen",
+    "coverImagePath": "assets/images/prideandprejudice.jpg",
+    "genre": "Romance",
+    "description": "Elizabeth Bennet navigates love, society, and first impressions in 19th century England.",
+    "pages": "279 pages",
+    "isFavorite": true,
+    "isPopular": true
+  },
+  {
+    "title": "The Kite Runner",
+    "author": "Khaled Hosseini",
+    "coverImagePath": "assets/images/thekiterunner.jpg",
+    "genre": "Historical Fiction",
+    "description": "A tale of friendship, guilt, and redemption set against the backdrop of Afghanistan's tumultuous history.",
+    "pages": "371 pages",
+    "isFavorite": true,
+    "isPopular": true
+  },
+  {
+    "title": "Thinking, Fast and Slow",
+    "author": "Daniel Kahneman",
+    "coverImagePath": "assets/images/thinkingfastandslow.jpg",
+    "genre": "Psychology",
+    "description": "A Nobel laureate explores the two systems that drive the way we think and make decisions.",
+    "pages": "499 pages",
+    "isFavorite": false,
+    "isPopular": true
+  },
+  {
+    "title": "The Lord of the Rings: Fellowship of the Ring",
+    "author": "J.R.R. Tolkien",
+    "coverImagePath": "assets/images/fellowshipofthering.jpg",
+    "genre": "Fantasy",
+    "description": "Frodo Baggins embarks on a perilous quest to destroy the One Ring and save Middle-earth.",
+    "pages": "423 pages",
+    "isFavorite": true,
+    "isPopular": true
+  },
+  {
+    "title": "Becoming",
+    "author": "Michelle Obama",
+    "coverImagePath": "assets/images/becoming.jpg",
+    "genre": "Memoir",
+    "description": "The former First Lady shares her journey from the South Side of Chicago to the White House.",
+    "pages": "426 pages",
+    "isFavorite": true,
+    "isPopular": true
+  },
+  {
+    "title": "The Handmaid's Tale",
+    "author": "Margaret Atwood",
+    "coverImagePath": "assets/images/thehandmaidstale.jpg",
+    "genre": "Dystopian",
+    "description": "A haunting vision of a totalitarian society where women are stripped of their rights.",
+    "pages": "311 pages",
+    "isFavorite": true,
+    "isPopular": true
+  },
+  {
+    "title": "The Fault in Our Stars",
+    "author": "John Green",
+    "coverImagePath": "assets/images/thefaultinourstars.jpg",
+    "genre": "Young Adult",
+    "description": "Two teenagers with cancer fall in love and find meaning in their limited time together.",
+    "pages": "313 pages",
+    "isFavorite": true,
+    "isPopular": true
+  },
+  {
+    "title": "The 7 Habits of Highly Effective People",
+    "author": "Stephen R. Covey",
+    "coverImagePath": "assets/images/7habits.jpg",
+    "genre": "Self-help",
+    "description": "A holistic approach to personal and professional effectiveness through character development.",
+    "pages": "381 pages",
+    "isFavorite": false,
+    "isPopular": true
+  },
+  {
+    "title": "Educated",
+    "author": "Tara Westover",
+    "coverImagePath": "assets/images/educated.jpg",
+    "genre": "Memoir",
+    "description": "A woman's quest for knowledge transforms her from survivalist family member to Cambridge PhD.",
+    "pages": "334 pages",
+    "isFavorite": true,
+    "isPopular": true
+  },
+  {
+    "title": "The Girl with the Dragon Tattoo",
+    "author": "Stieg Larsson",
+    "coverImagePath": "assets/images/thegirlwiththedragontattoo.jpg",
+    "genre": "Thriller",
+    "description": "A journalist and a hacker uncover corruption and violence in Sweden's elite circles.",
+    "pages": "590 pages",
+    "isFavorite": false,
+    "isPopular": true
+  },
+  {
+    "title": "One Hundred Years of Solitude",
+    "author": "Gabriel García Márquez",
+    "coverImagePath": "assets/images/onehundredyearsofsolitude.jpg",
+    "genre": "Magical Realism",
+    "description": "The multi-generational saga of the Buendía family in the fictional town of Macondo.",
+    "pages": "417 pages",
+    "isFavorite": true,
+    "isPopular": false
+  },
+  {
+    "title": "The Da Vinci Code",
+    "author": "Dan Brown",
+    "coverImagePath": "assets/images/thedavincicode.jpg",
+    "genre": "Thriller",
+    "description": "A symbologist races to solve a murder that leads to religious conspiracies and ancient secrets.",
+    "pages": "689 pages",
+    "isFavorite": false,
+    "isPopular": true
+  },
+  {
+    "title": "Brave New World",
+    "author": "Aldous Huxley",
+    "coverImagePath": "assets/images/bravenewworld.jpg",
+    "genre": "Dystopian",
+    "description": "A society where happiness is manufactured and individuality is suppressed through technology.",
+    "pages": "268 pages",
+    "isFavorite": true,
+    "isPopular": true
+  },
+  {
+    "title": "The Silent Patient",
+    "author": "Alex Michaelides",
+    "coverImagePath": "assets/images/thesilentpatient.jpg",
+    "genre": "Psychological Thriller",
+    "description": "A psychotherapist becomes obsessed with treating a woman who refuses to speak after murdering her husband.",
+    "pages": "336 pages",
+    "isFavorite": true,
+    "isPopular": true
+  },
+  {
+    "title": "Where the Crawdads Sing",
+    "author": "Delia Owens",
+    "coverImagePath": "assets/images/wherethecrawdadssing.jpg",
+    "genre": "Mystery",
+    "description": "A young woman raised in isolation becomes the prime suspect in a murder case.",
+    "pages": "370 pages",
+    "isFavorite": true,
+    "isPopular": true
+  },
+  {
+    "title": "The Art of War",
+    "author": "Sun Tzu",
+    "coverImagePath": "assets/images/theartofwar.jpg",
+    "genre": "Philosophy",
+    "description": "Ancient Chinese military strategies that apply to business, politics, and life.",
+    "pages": "273 pages",
+    "isFavorite": false,
+    "isPopular": true
+  },
+  {
+    "title": "Gone Girl",
+    "author": "Gillian Flynn",
+    "coverImagePath": "assets/images/gonegirl.jpg",
+    "genre": "Psychological Thriller",
+    "description": "A marriage becomes the center of a twisted game when a wife disappears on their anniversary.",
+    "pages": "419 pages",
+    "isFavorite": true,
+    "isPopular": true
+  },
+  {
+    "title": "The Lean Startup",
+    "author": "Eric Ries",
+    "coverImagePath": "assets/images/theleanstartup.jpg",
+    "genre": "Business",
+    "description": "A methodology for developing businesses and products through validated learning and iteration.",
+    "pages": "296 pages",
+    "isFavorite": false,
+    "isPopular": true
+  },
+  {
+    "title": "Life of Pi",
+    "author": "Yann Martel",
+    "coverImagePath": "assets/images/lifeofpi.jpg",
+    "genre": "Adventure",
+    "description": "A young man survives 227 days stranded on a lifeboat with a Bengal tiger.",
+    "pages": "319 pages",
+    "isFavorite": true,
+    "isPopular": true
+  },
+  {
+    "title": "The Hunger Games",
+    "author": "Suzanne Collins",
+    "coverImagePath": "assets/images/thehungergames.jpg",
+    "genre": "Dystopian",
+    "description": "A girl volunteers to take her sister's place in a televised fight to the death.",
+    "pages": "374 pages",
+    "isFavorite": true,
+    "isPopular": true
+  },
+  {
+    "title": "Ikigai",
+    "author": "Héctor García and Francesc Miralles",
+    "coverImagePath": "assets/images/ikigai.jpg",
+    "genre": "Self-help",
+    "description": "The Japanese secret to a long and happy life through finding one's purpose.",
+    "pages": "208 pages",
+    "isFavorite": true,
+    "isPopular": true
+  },
+  {
+    "title": "The Outsiders",
+    "author": "S.E. Hinton",
+    "coverImagePath": "assets/images/theoutsiders.jpg",
+    "genre": "Young Adult",
+    "description": "A teenage boy navigates the divide between social classes in 1960s Oklahoma.",
+    "pages": "192 pages",
+    "isFavorite": false,
+    "isPopular": true
+  },
+  {
+    "title": "Mindset",
+    "author": "Carol S. Dweck",
+    "coverImagePath": "assets/images/mindset.jpg",
+    "genre": "Psychology",
+    "description": "How a simple idea about the brain can transform your approach to learning and success.",
+    "pages": "276 pages",
+    "isFavorite": false,
+    "isPopular": true
+  },
+  {
+    "title": "The Giver",
+    "author": "Lois Lowry",
+    "coverImagePath": "assets/images/thegiver.jpg",
+    "genre": "Dystopian",
+    "description": "A boy discovers the dark truth about his seemingly perfect society when he becomes the Receiver of Memory.",
+    "pages": "179 pages",
+    "isFavorite": true,
+    "isPopular": true
+  },
+  {
+    "title": "Steve Jobs",
+    "author": "Walter Isaacson",
+    "coverImagePath": "assets/images/stevejobs.jpg",
+    "genre": "Biography",
+    "description": "The definitive biography of the Apple co-founder based on exclusive interviews.",
+    "pages": "656 pages",
+    "isFavorite": false,
+    "isPopular": true
+  },
+  {
+    "title": "The Road",
+    "author": "Cormac McCarthy",
+    "coverImagePath": "assets/images/theroad.jpg",
+    "genre": "Post-Apocalyptic",
+    "description": "A father and son journey through a post-apocalyptic wasteland in search of safety.",
+    "pages": "287 pages",
+    "isFavorite": true,
+    "isPopular": false
+  },
+  {
+    "title": "12 Rules for Life",
+    "author": "Jordan B. Peterson",
+    "coverImagePath": "assets/images/12rulesforlife.jpg",
+    "genre": "Self-help",
+    "description": "An antidote to chaos through twelve practical principles for living meaningfully.",
+    "pages": "409 pages",
+    "isFavorite": false,
+    "isPopular": true
+  },
+  {
+    "title": "The Time Traveler's Wife",
+    "author": "Audrey Niffenegger",
+    "coverImagePath": "assets/images/thetimetravelerswife.jpg",
+    "genre": "Romance",
+    "description": "A love story between a man with a genetic disorder that causes him to time travel and his wife.",
+    "pages": "518 pages",
+    "isFavorite": true,
+    "isPopular": true
+  },
+  {
+    "title": "Animal Farm",
+    "author": "George Orwell",
+    "coverImagePath": "assets/images/animalfarm.jpg",
+    "genre": "Allegory",
+    "description": "Farm animals rebel against their human farmer, hoping to create an equal society.",
+    "pages": "112 pages",
+    "isFavorite": true,
+    "isPopular": true
+  },
+  {
+    "title": "The Immortal Life of Henrietta Lacks",
+    "author": "Rebecca Skloot",
+    "coverImagePath": "assets/images/henriettalacks.jpg",
+    "genre": "Science",
+    "description": "The story of how one woman's cells revolutionized medical science.",
+    "pages": "381 pages",
+    "isFavorite": true,
+    "isPopular": true
+  },
+  {
+    "title": "Ready Player One",
+    "author": "Ernest Cline",
+    "coverImagePath": "assets/images/readyplayerone.jpg",
+    "genre": "Sci-Fi",
+    "description": "A teenager hunts for an Easter egg in a virtual reality world to inherit its creator's fortune.",
+    "pages": "374 pages",
+    "isFavorite": true,
+    "isPopular": true
+  },
+  {
+    "title": "The Hate U Give",
+    "author": "Angie Thomas",
+    "coverImagePath": "assets/images/thehateugive.jpg",
+    "genre": "Young Adult",
+    "description": "A teenage girl finds her voice after witnessing the fatal shooting of her unarmed friend by police.",
+    "pages": "444 pages",
+    "isFavorite": true,
+    "isPopular": true
+  },
+  {
+    "title": "Big Little Lies",
+    "author": "Liane Moriarty",
+    "coverImagePath": "assets/images/biglittlelies.jpg",
+    "genre": "Mystery",
+    "description": "Three women's lives unravel to the point of murder at a school trivia night.",
+    "pages": "460 pages",
+    "isFavorite": true,
+    "isPopular": true
+  },
+  {
+    "title": "The Four Agreements",
+    "author": "Don Miguel Ruiz",
+    "coverImagePath": "assets/images/thefouragreements.jpg",
+    "genre": "Spirituality",
+    "description": "Four principles based on ancient Toltec wisdom to transform your life.",
+    "pages": "138 pages",
+    "isFavorite": true,
+    "isPopular": true
+  },
+  {
+    "title": "Fahrenheit 451",
+    "author": "Ray Bradbury",
+    "coverImagePath": "assets/images/fahrenheit451.jpg",
+    "genre": "Dystopian",
+    "description": "A fireman whose job is to burn books begins to question his society's censorship.",
+    "pages": "249 pages",
+    "isFavorite": true,
+    "isPopular": true
+  },
+  {
+    "title": "The Martian",
+    "author": "Andy Weir",
+    "coverImagePath": "assets/images/themartian.jpg",
+    "genre": "Sci-Fi",
+    "description": "An astronaut stranded on Mars must use his ingenuity to survive until rescue arrives.",
+    "pages": "369 pages",
+    "isFavorite": true,
+    "isPopular": true
+  },
+  {
+    "title": "Man's Search for Meaning",
+    "author": "Viktor E. Frankl",
+    "coverImagePath": "assets/images/manssearchformeaning.jpg",
+    "genre": "Philosophy",
+    "description": "A Holocaust survivor's account of finding purpose and meaning in the darkest circumstances.",
+    "pages": "165 pages",
+    "isFavorite": true,
+    "isPopular": true
+  },
+  {
+    "title": "The Girl on the Train",
+    "author": "Paula Hawkins",
+    "coverImagePath": "assets/images/thegirlonthetrain.jpg",
+    "genre": "Psychological Thriller",
+    "description": "A woman becomes entangled in a missing person investigation that hits close to home.",
+    "pages": "395 pages",
+    "isFavorite": false,
+    "isPopular": true
+  },
+  {
+    "title": "Outliers",
+    "author": "Malcolm Gladwell",
+    "coverImagePath": "assets/images/outliers.jpg",
+    "genre": "Psychology",
+    "description": "An examination of the factors that contribute to high levels of success.",
+    "pages": "309 pages",
+    "isFavorite": false,
+    "isPopular": true
+  },
+  {
+    "title": "The Help",
+    "author": "Kathryn Stockett",
+    "coverImagePath": "assets/images/thehelp.jpg",
+    "genre": "Historical Fiction",
+    "description": "African American maids in 1960s Mississippi share their stories with a young white woman.",
+    "pages": "451 pages",
+    "isFavorite": true,
+    "isPopular": true
+  },
+  {
+    "title": "Eat, Pray, Love",
+    "author": "Elizabeth Gilbert",
+    "coverImagePath": "assets/images/eatpraylove.jpg",
+    "genre": "Memoir",
+    "description": "A woman's journey of self-discovery through Italy, India, and Indonesia.",
+    "pages": "334 pages",
+    "isFavorite": true,
+    "isPopular": true
+  },
+  {
+    "title": "The Perks of Being a Wallflower",
+    "author": "Stephen Chbosky",
+    "coverImagePath": "assets/images/theperksofbeingawallflower.jpg",
+    "genre": "Coming-of-age",
+    "description": "An introverted teenager navigates high school through letters to an anonymous friend.",
+    "pages": "213 pages",
+    "isFavorite": true,
+    "isPopular": true
+  },
+  {
+    "title": "Zero to One",
+    "author": "Peter Thiel",
+    "coverImagePath": "assets/images/zerotoone.jpg",
+    "genre": "Business",
+    "description": "Notes on startups and how to build the future through creating monopolies.",
+    "pages": "210 pages",
+    "isFavorite": false,
+    "isPopular": true
+  },
+  {
+    "title": "The Curious Incident of the Dog in the Night-Time",
+    "author": "Mark Haddon",
+    "coverImagePath": "assets/images/thecuriousincident.jpg",
+    "genre": "Mystery",
+    "description": "A teenager with autism investigates the death of a neighbor's dog.",
+    "pages": "226 pages",
+    "isFavorite": true,
+    "isPopular": true
+  },
+  {
+    "title": "Good to Great",
+    "author": "Jim Collins",
+    "coverImagePath": "assets/images/goodtogreat.jpg",
+    "genre": "Business",
+    "description": "Why some companies make the leap to greatness while others don't.",
+    "pages": "300 pages",
+    "isFavorite": false,
+    "isPopular": true
+  },
+  {
+    "title": "The Lovely Bones",
+    "author": "Alice Sebold",
+    "coverImagePath": "assets/images/thelovelybones.jpg",
+    "genre": "Literary Fiction",
+    "description": "A murdered girl watches from heaven as her family and friends struggle to move on.",
+    "pages": "328 pages",
+    "isFavorite": true,
+    "isPopular": true
+  },
+  {
+    "title": "Freakonomics",
+    "author": "Steven D. Levitt and Stephen J. Dubner",
+    "coverImagePath": "assets/images/freakonomics.jpg",
+    "genre": "Economics",
+    "description": "A rogue economist explores the hidden side of everything through data analysis.",
+    "pages": "315 pages",
+    "isFavorite": false,
+    "isPopular": true
+  },
+  {
+    "title": "The Shining",
+    "author": "Stephen King",
+    "coverImagePath": "assets/images/theshining.jpg",
+    "genre": "Horror",
+    "description": "A family becomes caretakers of an isolated hotel where supernatural forces drive the father insane.",
+    "pages": "447 pages",
+    "isFavorite": true,
+    "isPopular": true
+  },
+  {
+    "title": "Divergent",
+    "author": "Veronica Roth",
+    "coverImagePath": "assets/images/divergent.jpg",
+    "genre": "Dystopian",
+    "description": "In a society divided into factions, a girl discovers she doesn't fit into any single group.",
+    "pages": "487 pages",
+    "isFavorite": false,
+    "isPopular": true
+  },
+  {
+    "title": "The Tipping Point",
+    "author": "Malcolm Gladwell",
+    "coverImagePath": "assets/images/thetippingpoint.jpg",
+    "genre": "Sociology",
+    "description": "How little things can make a big difference in creating social epidemics.",
+    "pages": "301 pages",
+    "isFavorite": false,
+    "isPopular": true
+  },
+  {
+    "title": "Jane Eyre",
+    "author": "Charlotte Brontë",
+    "coverImagePath": "assets/images/janeeyre.jpg",
+    "genre": "Classic",
+    "description": "An orphan governess finds love and independence despite societal constraints.",
+    "pages": "507 pages",
+    "isFavorite": true,
+    "isPopular": false
+  },
+  {
+    "title": "The 4-Hour Workweek",
+    "author": "Timothy Ferriss",
+    "coverImagePath": "assets/images/the4hourworkweek.jpg",
+    "genre": "Self-help",
+    "description": "Escape the 9-5 lifestyle and create a life of freedom through automation and outsourcing.",
+    "pages": "308 pages",
+    "isFavorite": false,
+    "isPopular": true
+  },
+  {
+    "title": "Lord of the Flies",
+    "author": "William Golding",
+    "coverImagePath": "assets/images/lordoftheflies.jpg",
+    "genre": "Classic",
+    "description": "Stranded British boys descend into savagery while attempting to govern themselves.",
+    "pages": "224 pages",
+    "isFavorite": true,
+    "isPopular": true
+  },
+  {
+    "title": "The Secret",
+    "author": "Rhonda Byrne",
+    "coverImagePath": "assets/images/thesecret.jpg",
+    "genre": "Self-help",
+    "description": "The law of attraction and how positive thinking can transform your life.",
+    "pages": "198 pages",
+    "isFavorite": false,
+    "isPopular": true
+  },
+  {
+    "title": "Fifty Shades of Grey",
+    "author": "E.L. James",
+    "coverImagePath": "assets/images/fiftyshades.jpg",
+    "genre": "Erotic Romance",
+    "description": "A college graduate enters into a relationship with a young business magnate.",
+    "pages": "514 pages",
+    "isFavorite": false,
+    "isPopular": true
+  },
+  {
+    "title": "The Color Purple",
+    "author": "Alice Walker",
+    "coverImagePath": "assets/images/thecolorpurple.jpg",
+    "genre": "Literary Fiction",
+    "description": "An African American woman's journey to find her identity and independence in the early 1900s South.",
+    "pages": "295 pages",
+    "isFavorite": true,
+    "isPopular": true
+  },
+  {
+    "title": "Blink",
+    "author": "Malcolm Gladwell",
+    "coverImagePath": "assets/images/blink.jpg",
+    "genre": "Psychology",
+    "description": "The power of thinking without thinking and making quick decisions.",
+    "pages": "296 pages",
+    "isFavorite": false,
+    "isPopular": true
+  },
+  {
+    "title": "The Maze Runner",
+    "author": "James Dashner",
+    "coverImagePath": "assets/images/themazerunner.jpg",
+    "genre": "Dystopian",
+    "description": "A teenager wakes up in a maze with no memory of his past.",
+    "pages": "375 pages",
+    "isFavorite": false,
+    "isPopular": true
+  },
+  {
+    "title": "How to Win Friends and Influence People",
+    "author": "Dale Carnegie",
+    "coverImagePath": "assets/images/howtowinfriendsandinfluencepeople.jpg",
+    "genre": "Self-help",
+    "description": "Timeless advice on building relationships and communicating effectively.",
+    "pages": "291 pages",
+    "isFavorite": false,
+    "isPopular": true
+  },
+  {
+    "title": "The Scarlet Letter",
+    "author": "Nathaniel Hawthorne",
+    "coverImagePath": "assets/images/thescarletletter.jpg",
+    "genre": "Classic",
+    "description": "A woman in Puritan New England is publicly shamed for adultery.",
+    "pages": "279 pages",
+    "isFavorite": false,
+    "isPopular": false
+  },
+  {
+    "title": "Thirteen Reasons Why",
+    "author": "Jay Asher",
+    "coverImagePath": "assets/images/thirteenreasonswhy.jpg",
+    "genre": "Young Adult",
+    "description": "A teenager receives cassette tapes explaining why his classmate committed suicide.",
+    "pages": "288 pages",
+    "isFavorite": true,
+    "isPopular": true
+  },
+  {
+    "title": "The Hitchhiker's Guide to the Galaxy",
+    "author": "Douglas Adams",
+    "coverImagePath": "assets/images/hitchhikersguide.jpg",
+    "genre": "Science Fiction",
+    "description": "A hapless human travels through space after Earth is destroyed to make way for a galactic freeway.",
+    "pages": "224 pages",
+    "isFavorite": true,
+    "isPopular": true
+  },
+  {
+    "title": "Rich Dad's Cashflow Quadrant",
+    "author": "Robert Kiyosaki",
+    "coverImagePath": "assets/images/cashflowquadrant.jpg",
+    "genre": "Finance",
+    "description": "The four types of people in the world of money and how to move from one quadrant to another.",
+    "pages": "360 pages",
+    "isFavorite": false,
+    "isPopular": false
+  },
+  {
+    "title": "The Fault in Our Stars",
+    "author": "John Green",
+    "coverImagePath": "assets/images/thefaultinourstars2.jpg",
+    "genre": "Young Adult",
+    "description": "Two teenagers with cancer fall in love and find meaning in their limited time together.",
+    "pages": "313 pages",
+    "isFavorite": true,
+    "isPopular": true
+  },
+  {
+    "title": "Slaughterhouse-Five",
+    "author": "Kurt Vonnegut",
+    "coverImagePath": "assets/images/slaughterhousefive.jpg",
+    "genre": "Literary Fiction",
+    "description": "A World War II soldier becomes unstuck in time and experiences his life non-linearly.",
+    "pages": "275 pages",
+    "isFavorite": true,
+    "isPopular": false
+  },
+  {
+    "title": "The 5 Love Languages",
+    "author": "Gary Chapman",
+    "coverImagePath": "assets/images/the5lovelanguages.jpg",
+    "genre": "Relationships",
+    "description": "How to express heartfelt commitment to your mate through five emotional love languages.",
+    "pages": "204 pages",
+    "isFavorite": false,
+    "isPopular": true
+  },
+  {
+    "title": "Of Mice and Men",
+    "author": "John Steinbeck",
+    "coverImagePath": "assets/images/ofmiceandmen.jpg",
+    "genre": "Classic",
+    "description": "Two displaced migrant ranch workers chase their shared dream during the Great Depression.",
+    "pages": "112 pages",
+    "isFavorite": true,
+    "isPopular": true
+  },
+  {
+    "title": "The Stand",
+    "author": "Stephen King",
+    "coverImagePath": "assets/images/thestand.jpg",
+    "genre": "Horror",
+    "description": "Survivors of a plague that wipes out most of humanity face off in an epic battle between good and evil.",
+    "pages": "1152 pages",
+    "isFavorite": true,
+    "isPopular": true
+  },
+  {
+    "title": "Twilight",
+    "author": "Stephenie Meyer",
+    "coverImagePath": "assets/images/twilight.jpg",
+    "genre": "Paranormal Romance",
+    "description": "A teenage girl falls in love with a vampire in the small town of Forks, Washington.",
+    "pages": "498 pages",
+    "isFavorite": false,
+    "isPopular": true
+  },
+  {
+    "title": "The Gifts of Imperfection",
+    "author": "Brené Brown",
+    "coverImagePath": "assets/images/thegiftsofimperfection.jpg",
+    "genre": "Self-help",
+    "description": "Let go of who you think you're supposed to be and embrace who you are.",
+    "pages": "137 pages",
+    "isFavorite": true,
+    "isPopular": true
   }
 ]
